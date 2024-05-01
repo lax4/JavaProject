@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Services</title>
+		<style>
+		body {
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+
+		nav {
+			background-color: green;
+			color: white;
+			padding: 10px;
+		}
+
+		nav ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			text-align: center;
+		}
+
+		nav ul li {
+			display: inline-block;
+			margin-right: 20px;
+		}
+
+		nav ul li a {
+			color: #fff;
+			text-decoration: none;
+			padding: 5px 10px;
+			border-radius: 3px;
+		}
+
+		nav ul li a:hover {
+			background-color: #555;
+		}
+
+		form {
+			display: none;
+			width: 300px;
+			margin: 20px auto;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 5px;
+		}
+
+		input[type="text"],
+		input[type="number"],
+		input[type="submit"] {
+			width: 100%;
+			padding: 5px;
+			margin-bottom: 10px;
+		}
+
+		</style>
+		<script>
+			function showForm(formId) {
+				var forms = document.getElementsByTagName("form");
+				for (var i = 0; i < forms.length; i++) {
+					forms[i].style.display = "none";
+				}
+
+				var form = document.getElementById(formId);
+				form.style.display = "block";
+			}
+		</script>
+	</head>
+	<body>
+		<nav>
+			<ul>
+				<li><a href="#" onclick="showForm('insert_account_form');">Create Account</a></li>
+				<li><a href="#" onclick="showForm('withdraw_form');">Withdraw</a></li>
+				<li><a href="#" onclick="showForm('deposit_form');">Deposit</a></li>
+				<li><a href="#">Check Balance</a></li>
+				<li><a href="#">Update Name</a></li>
+				<li><a href="#">Money Transfer</a></li>
+				<li><a href="./Logout">Logout</a></li>
+			</ul>
+		</nav>
+
+		<form id="insert_account_form" action="CreateAccount" method="post" style="display: none;">
+			<h2>Create Account</h2>
+			Enter Account Num : <input type="text" id="accountNumber" name="accountNumber" required>
+			Enter Name : <input type="text" id="name" name="name" required>
+			Enter Balance : <input type="number" id="balance" name="balance" required>
+			<input type="submit" value="Create Account">
+		</form>
+
+		<form id="withdraw_form" action="Withdraw" method="post" style="display: none;">
+			<h2>Withdraw</h2>
+			Enter Account num : <input type="text" id="accountNumberWithdraw" name="accountNumberWithdraw" required>
+			Enter Withdraw amt : <input type="number" id="amountWithdraw" name="amountWithdraw" required>
+			<input type="submit" value="Withdraw">
+		</form>
+
+		<form id="deposit_form" action="Deposit" method="post" style="display: none;">
+			<h2>Deposit</h2>
+			Enter Account Num : <input type="text" id="accountNumberDeposit" name="accountNumberDeposit" required>
+			Enter Deposit Amt : <input type="number" id="amountDeposit" name="amountDeposit" required>
+			<input type="submit" value="Deposit">
+		</form>
+	</body>
+</html>
